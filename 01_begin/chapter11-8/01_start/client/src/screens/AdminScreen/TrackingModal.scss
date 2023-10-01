@@ -1,0 +1,118 @@
+@import "../../assets/size-variable";
+@import "../../assets/color-variable";
+@import "../../assets/mixins";
+
+.tracking-modal {
+  @include modal-frame;
+  &__box {
+    height: $modal-basic-height;
+    width: $modal-basic-width;
+
+    border-radius: $modal-basic-radius;
+
+    display: flex;
+    flex-direction: column;
+    &__body {
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: $modal-basic-radius $modal-basic-radius 0 0;
+
+      &__title {
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+        h2 {
+          margin-right: 2rem;
+          color: $--blue;
+        }
+      }
+      &__contents {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        padding: 2rem;
+        &__details {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          gap: 1rem;
+          p {
+            width: 50%;
+          }
+          input {
+            width: 50%;
+            border-bottom: 1px solid $--blue;
+          }
+        }
+      }
+    }
+    &__footer {
+      display: flex;
+      flex-direction: row;
+      height: 40%;
+
+      .answer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &.right {
+          justify-content: right;
+          padding-right: 3rem;
+        }
+        &.left {
+          justify-content: left;
+          padding-left: 3rem;
+        }
+        &.center {
+          justify-content: center;
+        }
+
+        &.select {
+          width: 100%;
+
+          .yesno {
+            width: 10rem;
+            height: 6rem;
+
+            text-align: center;
+            border-radius: 1.5rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            font-size: 2rem;
+            &:hover {
+              box-shadow: 0 1rem 1rem 0 rgb(218, 206, 206);
+              cursor: pointer;
+            }
+            &.yes {
+              background-color: $gray;
+            }
+            &.no {
+              background-color: $danger;
+            }
+            &.submit {
+              background-color: $naver;
+            }
+            &.close {
+              background-color: $danger;
+              color: $danger__text;
+            }
+          }
+        }
+      }
+    }
+  }
+}

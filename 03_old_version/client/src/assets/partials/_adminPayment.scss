@@ -1,0 +1,123 @@
+@import "./variable/color-variable";
+@import "./mixins";
+
+.adminPayment-container {
+  @include admin-table-box;
+
+  .table-contents {
+    width: 100%;
+    border-collapse: collapse;
+
+    margin: 2rem 0;
+    font-size: 1.5rem;
+    min-width: 40rem;
+    border-radius: 0.5rem 0.5rem 0 0; // 전체 테두리를 둥글게해도
+    overflow: hidden; // 각 테이블이 네모이기에 넘치는 부분은 숨겨줘야 한다
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.15);
+
+    thead {
+      text-align: center;
+      // table-layout: fixed;
+      // width: 200%;
+      // position: sticky;
+      // top: 0;
+      // z-index: 10;
+      tr {
+        // position: sticky;
+        // top: 10rem;
+        background-color: $--blue;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+        th {
+          border-right: 0.2rem solid $white;
+          border-bottom: 0.2rem solid $white;
+          padding: 1.2rem 1.5rem;
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+      }
+      // sticky 는 안씀
+      .sticky {
+        // table-layout: fixed;
+        // width: 100%;
+        position: fixed;
+        top: 0;
+        border-radius: 0.5rem 0.5rem 0 0; // 전체 테두리를 둥글게해도
+        overflow: hidden; // 각 테이블이 네모이기에 넘치는 부분은 숨겨줘야 한다
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.15);
+        @include table-size;
+      }
+    }
+    tbody {
+      tr {
+        text-align: center;
+
+        td {
+          padding: 0.3rem 1.7rem;
+          text-align: center;
+          border-right: 0.2rem solid #bcbdbd;
+          border-bottom: 0.2rem solid #009879;
+          &:last-of-type {
+            border-right: none;
+          }
+        }
+
+        // &:active {
+        //   font-weight: bold;
+        //   color: #009879;
+        // }
+      }
+      .myTrackingNum__box {
+        display: flex;
+        flex-direction: column;
+
+        &__remodify {
+          padding: 1rem 0;
+          &:not(:last-child) {
+            border-bottom: 0.1px solid rgba(0, 0, 0, 0.15);
+          }
+          font-size: 1.8rem;
+          font-weight: 600;
+          &__num {
+            margin-top: 0.3rem;
+          }
+        }
+      }
+
+      .table-btn {
+        background-color: #fc7c7c;
+        padding: 0.5rem;
+        color: #fff;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        &:active {
+          box-shadow: 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.15);
+        }
+        &.review {
+          background-color: #009879;
+
+          &.checked {
+            background-color: #e49621;
+          }
+        }
+        &.modify {
+          background-color: $success;
+          color: $success__text;
+        }
+        &.remodify {
+          background-color: $danger;
+          color: $danger__text;
+        }
+        &.non-cancellable {
+          background-color: #bcbdbd;
+          color: rgb(255, 255, 255);
+        }
+      }
+    }
+  }
+  .product__button {
+    padding: 1.35rem 0; // 1.6rem - 버튼 패딩 0.5를 2로 나눈 값을 뺀 값
+  }
+}

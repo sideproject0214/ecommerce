@@ -1,0 +1,10 @@
+FROM nginx:1.23-alpine
+
+# nginx 의 default.conf 를 삭제
+RUN rm -rf  /etc/nginx/conf.d
+
+COPY  ./config/prod /etc/nginx/conf.d
+
+
+
+EXPOSE 80

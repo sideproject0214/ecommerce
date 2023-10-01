@@ -1,0 +1,4 @@
+// Users Request
+export const USERS_LOAD_REQUEST = "USERS_LOAD_REQUEST";
+export const USERS_LOAD_SUCCESS = "USERS_LOAD_SUCCESS";
+export const USERS_LOAD_FAILURE = "USERS_LOAD_FAILURE";

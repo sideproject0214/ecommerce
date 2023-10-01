@@ -1,0 +1,61 @@
+@import "../../assets/color-variable";
+@import "../../assets/mixins";
+
+.admin__body__user-context {
+  @include admin-table-box;
+  &__header {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+    &__box {
+      width: 15%;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      &__select {
+        padding: 0.5rem;
+      }
+    }
+  }
+  &__admin-users {
+    margin-bottom: 2rem;
+    min-height: 65rem;
+    &__delete {
+      @include admin-delete;
+    }
+    &__empty-space {
+      max-height: 40rem;
+    }
+
+    @include admin-box;
+    @include admin-table;
+    // max-height: 30rem;
+    table {
+      td {
+        text-align: left;
+        &:nth-child(2) {
+          text-align: center;
+        }
+        &:nth-child(2) {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          text-align: center;
+        }
+        &:nth-child(8) {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          text-align: center;
+        }
+        &:last-child {
+          text-align: end;
+        }
+      }
+    }
+    &__btn {
+      @include admin-btn;
+    }
+  }
+}

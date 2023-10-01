@@ -1,0 +1,253 @@
+@import "./variable/size-variable";
+
+@mixin admin-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 50rem;
+  background-color: $white;
+  padding: 2rem;
+  box-shadow: 0 0.7rem 2.5rem rgba(0, 0, 0, 0.08);
+  border-radius: 2rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 5rem;
+    h2 {
+      font-weight: 600;
+      color: $--blue;
+    }
+    &__btn {
+      position: relative;
+      padding: 0.5rem 1rem 0.5rem;
+      background-color: $--blue;
+      color: $white;
+      border-radius: 0.6rem;
+    }
+  }
+}
+
+@mixin admin-table {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    max-height: 45rem;
+
+    td {
+      padding: 1rem;
+    }
+    thead {
+      tr {
+        color: $--black1;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      td {
+        font-weight: 600;
+      }
+    }
+    tbody {
+      tr {
+        color: $--black1;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        &:hover {
+          background-color: $--blue;
+          color: $white;
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+@mixin admin-search {
+  position: relative;
+  width: 40rem;
+  margin: 0 1rem;
+  label {
+    position: relative;
+    width: 100%;
+    input {
+      width: 100%;
+      height: 4rem;
+      border-radius: 4rem;
+      padding: 0.5rem 2rem;
+      padding-left: 4rem;
+      font-size: 1.7rem;
+      outline: none;
+      border: 1px solid $--black2;
+    }
+    i {
+      position: absolute;
+      top: 0rem;
+      left: 1rem;
+      font-size: 2rem;
+    }
+  }
+}
+
+@mixin admin-table-box {
+  position: relative;
+  width: 100%;
+  padding: 2rem;
+}
+
+@mixin shadow {
+  box-shadow: 0 0.7rem 2.5rem rgba(0, 0, 0, 0.15);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin admin-delete {
+  width: 8rem;
+  display: inline-block;
+  background-color: #fc7c7c;
+  font-size: 1.8rem;
+  padding: 0.5rem;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  @include shadow;
+}
+
+@mixin admin-btn {
+  margin: 0 auto;
+  width: 30%;
+  padding: 0.5rem 0;
+  border-radius: 1rem;
+  background-color: $primary;
+  color: $primary__text;
+  text-align: center;
+  border: 1px solid #bbc1e1;
+  @include shadow;
+}
+
+@mixin basic-input {
+  [class*="basic-input"] {
+    display: block;
+    border: 1px solid #999;
+    height: 4.8rem;
+    padding: 1.3rem 1.6rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: black;
+    margin-bottom: 1.6rem;
+    border-radius: 3px;
+  }
+}
+
+@mixin flex-row-space-around {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin table-size {
+  // checkbox
+
+  > :nth-child(1) {
+    width: 3%;
+  }
+  // 주문번호, orderId
+  > :nth-child(2) {
+    width: 14%;
+    color: red !important;
+  }
+  // 이름, name
+  > :nth-child(3) {
+    width: 8%;
+  }
+  // 총 금액, totalPrice
+  > :nth-child(4) {
+    width: 8%;
+  }
+  // 결제여부, isPaid
+  > :nth-child(5) {
+    width: 21%;
+  }
+  // 주문상품정보, productInfo
+  > :nth-child(6) {
+    width: 11%;
+  }
+
+  // 상품금액, productPrice
+  > :nth-child(7) {
+    width: 11%;
+  }
+  // 배송비, deliveryFee
+  > :nth-child(8) {
+    width: 15%;
+  }
+  // 송장번호, trackingNumber
+  > :nth-child(9) {
+    width: 9%;
+  }
+  // // 배송상태, trackingContents
+  // > :nth-child(10) {
+  //   width: 8%;
+  //   border: 1px solid #999;
+  // }
+  // // 취소, cancel
+  // > :nth-child(11) {
+  //   width: 5%;
+  // }
+}
+
+@mixin modal-frame {
+  width: $modal-basic-width;
+  height: $modal-basic-height;
+  position: absolute;
+  top: calc(((100vh - #{$modal-basic-height}) / 4));
+  left: calc(((100vw - #{$modal-basic-width}) / 2));
+
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: white;
+  opacity: 1 !important;
+  // border: 1px solid #ccc;
+  border-radius: $modal-basic-radius;
+  transition: 1.1s ease-out;
+  box-shadow: -2rem 2rem 2rem rgba(black, 0.05);
+
+  // filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes animate {
+  0% {
+    background-position: -10vw 0;
+  }
+  100% {
+    background-position: 50vw 0;
+  }
+}
+
+// https://developer.mozilla.org/ko/docs/Web/CSS/animation-fill-mode
+
+@mixin animation-background {
+  animation-name: animate;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  background-size: 100rem 40rem;
+
+  position: relative;
+  // background: #d1e2e9;
+  background: linear-gradient(
+    to right,
+    #d1e2e9 $start,
+    #b6e4f3 $middle,
+    #d1e2e9 $end
+  );
+}

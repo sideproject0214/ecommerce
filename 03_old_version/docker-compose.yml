@@ -1,0 +1,59 @@
+version: "3"
+services:
+  db:
+    image: "postgres:13.1-alpine"
+
+    # build:
+    #   context: ./db
+    #   dockerfile: Dockerfile.dev
+    ports:
+      - "5433:5432"
+    container_name: postgresql2
+
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=password123
+      - POSTGRES_DB=ecommerce
+      # - TZ="Asia/Seoul"
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile.server.dev
+    links:
+      - db
+    restart: always
+    ports:
+      - "5000:5000"
+    container_name: backend2
+    # command: npm run dev
+    volumes:
+      - "./server:/app/server"
+      - "./server/node_modules:/app/server/node_modules"
+    environment:
+      - NODE_ENV=development
+      # - CHOKIDAR_USEPOLLING=true 없어도 된다.
+      # - TZ="Asia/Seoul" 없어도 된다
+      # - DATABASE_URL="postgres://postgres:pogstres@db:5432/ecommerce"
+      # - host=db
+      # - username=postgres
+      # - password=postgres
+      # - database=ecommerce
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.client.dev
+    ports:
+      - "3000:3000"
+    container_name: react-ui
+
+    volumes:
+      - "./client:/usr/src/app/client"
+      # - "/app/client/node_modules" 맥os와 linux 충돌방지
+      - "./client/node_modules:/app/client/node_modules"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true

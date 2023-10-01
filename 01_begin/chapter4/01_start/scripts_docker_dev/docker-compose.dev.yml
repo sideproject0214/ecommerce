@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  client:
+    build:
+      context: ../client
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    container_name: client
+
+    volumes:
+      - "../client:/app"
+      # - "/app/node_modules"
+      - "../client/node_modules:/app/node_modules"
+    command: sh -c "npm rebuild esbuild && npm run dev"
+    environment:
+      - NODE_ENV=development
+  
+  gateway:
+    build:
+      context: ../gateway
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - client
+      - api
+      - db
+
+    ports:
+      - "80:80"
+    container_name: gateway
+
+  api:
+    build:
+      context: ../api
+      dockerfile: Dockerfile.dev
+
+    ports:
+      - "8080:8080"
+    container_name: api
+    restart: always
+    volumes:
+      - "../api:/app"
+      - "../api/node_modules:/app/node_modules"
+
+  db:
+    build:
+      context: ../db
+      dockerfile: Dockerfile.dev
+    container_name: db

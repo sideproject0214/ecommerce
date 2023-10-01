@@ -1,0 +1,14 @@
+FROM node:19.4-alpine3.16
+
+WORKDIR /app
+
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY ./package*.json ./
+# package-lock까지 복사하여 개발환경과 동일한 환경을 설정한다.
+
+RUN npm i 
+
+COPY ./ ./
+
+ENTRYPOINT ["/bin/sh","./docker-entrypoint-dev.sh"]

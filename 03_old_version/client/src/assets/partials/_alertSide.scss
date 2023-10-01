@@ -1,0 +1,61 @@
+@import "./variable/color-variable";
+
+.alert-side {
+  background: $naver;
+  padding: 2rem 4rem;
+  min-width: 42rem;
+  position: absolute;
+  right: 0rem;
+  top: 1rem;
+  color: white;
+  border-radius: 0.4rem;
+  border-left: 1rem solid #4dad67;
+  overflow: hidden;
+  .fa-exclamation-circle {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 3rem;
+  }
+  &.show {
+    animation: show_slide 1s ease forwards;
+  }
+  body {
+    overflow: hidden;
+  }
+  @keyframes show_slide {
+    0% {
+      transform: translate(100%, 0);
+    }
+    40% {
+      transform: translate(-10%, 0);
+    }
+    80% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-1rem, 0);
+    }
+  }
+
+  .msg {
+    padding: 0 1rem 0 2rem;
+    font-size: 1.8rem;
+  }
+  .link-btn {
+    position: absolute;
+
+    right: 0rem;
+    top: 50%;
+    padding: 2rem 1.8rem;
+    transform: translate(0, -50%);
+    &:hover {
+      background: #1cbf48;
+    }
+    .fa-times {
+      font-size: 2.2rem;
+      line-height: 4rem;
+    }
+  }
+}

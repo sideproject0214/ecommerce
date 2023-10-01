@@ -1,0 +1,53 @@
+@import "../../assets/color-variable";
+@import "../../assets/mixins";
+
+.admin__body__user-context {
+  @include admin-table-box;
+  &__product {
+    @include admin-box;
+    @include admin-table;
+    margin-bottom: 2rem;
+    min-height: 65rem;
+    &__header {
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 1rem;
+      &__box {
+        width: 15%;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        &__select {
+          padding: 0.5rem;
+        }
+      }
+    }
+    table {
+      thead {
+        td {
+          &:nth-child(n + 7) {
+            text-align: center;
+          }
+        }
+      }
+      tbody {
+        td {
+          &:nth-child(n + 7):nth-child(-n + 8) {
+            text-align: right;
+          }
+          &:nth-child(n + 9):nth-child(-n + 10) {
+            text-align: center;
+          }
+        }
+      }
+    }
+    &__delete {
+      @include admin-delete;
+    }
+    &__btn {
+      @include admin-btn;
+      padding: 0.5rem;
+    }
+  }
+}

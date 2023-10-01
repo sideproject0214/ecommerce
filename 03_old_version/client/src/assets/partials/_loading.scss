@@ -1,0 +1,68 @@
+@import "./mixins";
+
+._header {
+  height: 100vh;
+  background-color: var(--grewLight);
+}
+._container {
+  height: 80rem;
+}
+._logo {
+  width: 10rem;
+  height: 5rem;
+  @include animation-background;
+}
+._nav-list {
+  width: 60rem;
+  height: 8rem;
+  @include animation-background;
+}
+
+._hero-contents {
+  width: 25rem;
+  height: 40rem;
+  @include animation-background;
+}
+
+._image {
+  width: 70%;
+  height: 50rem;
+  @include animation-background;
+}
+
+._product-header {
+  @include animation-background;
+
+  background: linear-gradient(
+    to right,
+    #f6f2f1 $start,
+    #f3e3dd $middle,
+    #f6f2f1 $end
+  );
+}
+
+._product-footer__name {
+  width: 80%;
+  height: 3rem;
+  margin: 0 auto;
+  @include animation-background;
+  background: linear-gradient(
+    to right,
+    #f6f6f6 $start,
+    #f0f0f0 $middle,
+    #f6f6f6 $end
+  );
+}
+
+._product-footer__price {
+  width: 40%;
+  height: 3rem;
+  margin: 1rem auto;
+  @include animation-background;
+  background: linear-gradient(
+    to right,
+    #f6f6f6 $start,
+    #f0f0f0 $middle,
+    #f6f6f6 $end
+  );
+}

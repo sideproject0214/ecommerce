@@ -1,0 +1,9 @@
+.admin__body__user-context {
+  &.review {
+    td {
+      &:not(:nth-child(3)) {
+        text-align: center;
+      }
+    }
+  }
+}

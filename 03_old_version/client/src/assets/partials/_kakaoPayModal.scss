@@ -1,0 +1,28 @@
+@import "./variable/size-variable";
+
+.kakaoPayModal {
+  width: $kakao-width;
+  position: absolute;
+  top: calc(((100vh - #{$kakao-height}) / 2));
+  left: calc(((100vw - #{$kakao-width}) / 2));
+  // transform: translate(-50%, -50%);
+  z-index: 1000;
+  // background: white;
+  opacity: 1 !important;
+  // border: 1px solid #ccc;
+  border-radius: $modal-basic-radius;
+  transition: 1.1s ease-out;
+  box-shadow: -2rem 2rem 2rem rgba(black, 0.05);
+
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+
+  iframe {
+    height: $kakao-height;
+    width: $kakao-width;
+    border: none;
+    border-radius: $modal-basic-radius;
+  }
+}

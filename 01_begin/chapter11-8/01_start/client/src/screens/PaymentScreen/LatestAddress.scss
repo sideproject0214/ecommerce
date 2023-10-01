@@ -1,0 +1,44 @@
+@import "../../assets/color-variable";
+
+.address__container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 35%;
+  padding: 2rem;
+  border-radius: 0.3rem;
+
+  margin: 10rem auto;
+  .address__title__container {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    .address__title {
+      font-size: 3rem;
+      color: #243a6f;
+      font-weight: 700;
+    }
+    span {
+      padding-left: 0rem;
+    }
+  }
+  .address__one__container {
+    .address__one {
+      background-color: $info;
+      color: $info__text;
+      border-color: $info__border;
+      border-radius: 0.5rem;
+      font-size: 2rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      &:hover {
+        box-shadow: 0 1rem 1rem 0 rgb(218, 206, 206);
+        cursor: pointer;
+
+        background-color: $success;
+        color: $success__text;
+        border-color: $success__border;
+      }
+    }
+  }
+}

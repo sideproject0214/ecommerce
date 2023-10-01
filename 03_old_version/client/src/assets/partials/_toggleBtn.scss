@@ -1,0 +1,32 @@
+@import "./variable/color-variable";
+
+.toggleBtn {
+  width: 4rem;
+  height: 2rem;
+  border-radius: 30px;
+  border: 1px solid #bbc1e1;
+  cursor: pointer;
+  background-color: #f6f8ff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  &.active {
+    background-color: $--blue;
+  }
+  &__circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50px;
+    position: absolute;
+    left: 5%;
+    transition: all 0.5s ease-in-out;
+    background-color: #e1e6f9;
+    &.active {
+      transform: translate(2rem, 0);
+      transition: all 0.5s ease-in-out;
+      background-color: $white;
+    }
+  }
+}

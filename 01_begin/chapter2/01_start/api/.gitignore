@@ -1,0 +1,5 @@
+/logs
+*.txt
+/prod
+.env
+node_modules

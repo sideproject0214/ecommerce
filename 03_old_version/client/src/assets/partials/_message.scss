@@ -1,0 +1,66 @@
+// .message-main {
+//   border: 1px;
+//   padding: 2rem;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   align-items: center;
+//   width: 50%;
+//   margin: 0 auto;
+//   border-radius: 3rem;
+//   height: 10rem;
+//   background-color: none;
+// }
+
+// .message-link {
+//   display: inline;
+//   font-size: 2rem;
+//   background-color: #2fa8e3;
+//   color: white;
+//   border-radius: 5rem;
+//   padding: 1rem 3rem;
+//   &:hover {
+//     box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+//   }
+// }
+@import "./variable/color-variable";
+.message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.message__header {
+  margin-bottom: 3rem;
+  width: 100%;
+  h2 {
+    text-align: center;
+  }
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  &.red {
+    color: $shoppingRed;
+  }
+}
+.message__link {
+  font-size: 2rem;
+  background-color: #2fa8e3;
+  color: white;
+  // width: 3rem;
+  border-radius: 5rem;
+  padding: 1rem 2rem;
+  &:hover {
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+  }
+  // &:last-child {
+  //   margin-left: 4rem;
+  // }
+  // &:first-child {
+  //   background-color: #009879;
+  // }
+}

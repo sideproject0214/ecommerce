@@ -1,0 +1,259 @@
+@import "./variable/loader-variable";
+@import "./mixins";
+.payment-info {
+  font-size: 2.3rem;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+.shipping {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #999;
+  padding: 2rem 0;
+  font-weight: 700;
+}
+
+.shipping-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // font-size: 1rem;
+  margin-top: 2rem;
+  padding: 1rem 3rem;
+
+  border-bottom: solid 1px #eee;
+  .radio-button-container {
+    display: block;
+    position: relative;
+    padding-left: 3.5rem;
+    margin-bottom: 1.2rem;
+    cursor: pointer;
+    font-size: 2.2rem;
+    user-select: none;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2.5rem;
+      width: 2.5rem;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+
+    &:hover input ~ .checkmark {
+      // input 다음에 나오는 .checkmark 모두
+      background-color: #ccc;
+    }
+    input:checked ~ .checkmark {
+      background-color: #2196f3;
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 8px;
+        left: 9px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: white;
+      }
+    }
+    .radio2.checkmark {
+      background-color: #2196f3;
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 8px;
+        left: 9px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: white;
+      }
+    }
+  }
+}
+.payment-total-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.shipping-address {
+  margin-top: 2rem;
+  display: flex;
+  flex: 1 1 30rem;
+  flex-direction: column;
+  @include basic-input;
+
+  .basic-input {
+    width: 50%;
+  }
+  .basic-input-2 {
+    width: 80%;
+  }
+  .basic-input-3 {
+    width: 100%;
+  }
+  .detail-address {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 1.5rem;
+    [class*="detail-"] {
+      border: 1px solid #999;
+      height: 4.8rem;
+      width: 80%;
+      padding: 1.3rem 1.6rem;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      color: black;
+      margin-bottom: 1.6rem;
+      border-radius: 3px;
+    }
+    .detail-1 {
+      flex: 2.5;
+    }
+    .detail-2 {
+      flex: 1;
+    }
+  }
+  .address {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    gap: 1.5rem;
+    margin-bottom: 1.6rem;
+    [class*="address-"] {
+      height: 4.8rem;
+      width: 50%;
+      padding: 1.3rem 1.6rem;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      border-radius: 3px;
+    }
+    .address-button {
+      flex: 1;
+      border: 1px solid #f43142;
+      color: #f43142;
+      text-align: center;
+    }
+    .address-input {
+      flex: 4;
+      border: 1px solid #999;
+      color: black;
+    }
+  }
+  .phone-number {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    gap: 1.5rem;
+    margin-bottom: 1.6rem;
+    [class*="phone"] {
+      text-align: center;
+      border: 1px solid #999;
+      height: 4.8rem;
+      width: 100%;
+      padding: 1.3rem 1.6rem;
+      font-size: 1.6rem;
+      line-height: 2rem;
+      border-radius: 3px;
+    }
+
+    select {
+      font-size: 1.6rem;
+      padding: 0 1rem;
+      border-radius: 3px;
+    }
+    .number-alert {
+      width: 100%;
+      font-size: 1.5rem;
+      text-align: center;
+      line-height: 4.8rem;
+      color: #dc3545;
+    }
+  }
+}
+.cart-right-col-fix {
+  position: fixed;
+  top: 11.1rem;
+  // right: 0;
+  right: calc((100% - 120rem) / 2);
+  // right: 12.35rem;
+}
+.cart-order.kakao-pay {
+  background: #fee500;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 1rem;
+  font-size: 2rem;
+  i {
+    display: inline-flex;
+    width: 15rem;
+    height: 100%;
+    line-height: 3rem;
+    text-align: center;
+    background: url(../../assets/logo/kakao-pay.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+.cart-order.pay-cancel {
+  // .cart-order.pay-cancel {
+  margin-top: 2rem !important; // 여기에만 따로 적용할때
+  background: #f43142;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 1rem;
+
+  i {
+    // display: inline-flex;
+    margin-right: 1rem;
+    height: 100%;
+    line-height: 6rem;
+    text-align: center;
+  }
+}
+.spin {
+  height: 7rem;
+  width: 7rem;
+  animation-name: spin;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+// styles
+
+.loader {
+  margin: 5rem auto;
+  height: $size;
+  width: $size;
+  border: $thickness solid $base-color;
+  border: {
+    right-color: $wheel-color;
+    top-color: $wheel-color;
+    radius: 100%;
+  }
+  animation: spin $speed infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

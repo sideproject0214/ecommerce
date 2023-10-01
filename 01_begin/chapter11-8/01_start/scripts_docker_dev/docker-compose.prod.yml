@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  client:
+    build:
+      context: ../client
+      dockerfile: Dockerfile.prod
+    ports:
+      - "5173:5173"
+    container_name: client
+
+    environment:
+      - NODE_ENV=production
+  gateway:
+    build:
+      context: ../gateway
+      dockerfile: Dockerfile.prod
+    depends_on:
+      # 맨위의 이름과 연결된다.
+      - client
+      - api
+      - db
+    ports:
+      - "80:80"
+    container_name: gateway
+
+  api:
+    build:
+      context: ../api
+      dockerfile: Dockerfile.prod
+
+    ports:
+      - "8080:8080"
+    container_name: api
+    restart: always
+    environment:
+      - NODE_ENV=production
+
+  db:
+    build:
+      context: ../db
+      dockerfile: Dockerfile.prod
+    container_name: db

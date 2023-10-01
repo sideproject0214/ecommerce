@@ -1,0 +1,132 @@
+@import "../../assets/mixins";
+
+._product-detail {
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  ._details {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 7rem;
+  }
+  ._left {
+    display: flex;
+    flex-direction: column;
+    height: 50rem;
+
+    ._main {
+      @include animation-loading-bar(
+        main,
+        43,
+        45,
+        2s,
+        rgb(246, 242, 241),
+        rgb(240, 200, 200)
+      );
+      margin-bottom: 2rem;
+    }
+    ._thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      ._thumbnail {
+        @include animation-loading-bar(
+          thumbnail,
+          10,
+          10,
+          2s,
+          rgb(246, 242, 241),
+          rgb(240, 200, 200)
+        );
+      }
+    }
+  }
+  ._right {
+    ._productOne-category {
+      @include animation-loading-bar(
+        category,
+        10,
+        3,
+        2s,
+        rgb(240, 227, 240),
+        rgb(200, 200, 200)
+      );
+      margin-bottom: 1.2rem;
+    }
+    ._productOne-name {
+      @include animation-loading-bar(
+        name,
+        20,
+        3,
+        2s,
+        rgb(175, 183, 201),
+        rgb(200, 200, 200)
+      );
+      margin-bottom: 1.2rem;
+    }
+    ._price-div {
+      @include animation-loading-bar(
+        price,
+        15,
+        3.6,
+        2s,
+        rgb(175, 183, 201),
+        rgb(200, 200, 200)
+      );
+      margin-bottom: 1.2rem;
+    }
+    ._description {
+      @include animation-loading-bar(
+        description,
+        50,
+        3,
+        2s,
+        rgb(175, 183, 201),
+        rgb(200, 200, 200)
+      );
+      margin-bottom: 1.2rem;
+    }
+    ._rating {
+      @include animation-loading-bar(
+        rating,
+        13,
+        1.9,
+        2s,
+        rgb(227, 228, 185),
+        rgb(200, 200, 200)
+      );
+      margin-bottom: 1.2rem;
+    }
+    ._select {
+      @include animation-loading-bar(
+        rating,
+        20,
+        3.8,
+        2s,
+        rgb(243, 243, 235),
+        rgb(200, 200, 200)
+      );
+      margin-bottom: 2rem;
+    }
+    ._deliveryFee {
+      @include animation-loading-bar(
+        deliveryFee,
+        15,
+        2.1,
+        2s,
+        rgb(175, 183, 201),
+        rgb(200, 200, 200)
+      );
+      margin-bottom: 2rem;
+    }
+  }
+}
+._review-table-container {
+  @include animation-loading-bar(
+    review-table,
+    100,
+    23,
+    2s,
+    rgb(229, 239, 237),
+    rgb(200, 200, 200)
+  );
+}

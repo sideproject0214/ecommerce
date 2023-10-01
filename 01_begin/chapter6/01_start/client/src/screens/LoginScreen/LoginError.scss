@@ -1,0 +1,14 @@
+@import "../../assets/color-variable";
+
+.login__error {
+  margin-top: 3rem;
+  font-size: 2.1rem;
+  &__span {
+    font-weight: bold;
+    color: red;
+  }
+  &__start {
+    font-weight: bold;
+    color: $blue;
+  }
+}

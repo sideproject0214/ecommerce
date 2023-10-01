@@ -1,0 +1,256 @@
+@import "../../assets/color-variable";
+
+.table-container {
+  position: relative;
+  max-width: 115rem;
+  margin: 0 auto;
+  min-height: 70vh;
+}
+
+.trackingNumberEach {
+  display: flex;
+  flex-direction: col;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.table-contents {
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 1.5rem;
+  min-width: 40rem;
+  border-radius: 0.5rem 0.5rem 0 0; // 전체 테두리를 둥글게해도
+  overflow: hidden; // 각 테이블이 네모이기에 넘치는 부분은 숨겨줘야 한다
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.15);
+  thead {
+    tr {
+      background-color: #009879;
+      color: #ffffff;
+      text-align: left;
+      font-weight: bold;
+
+      th {
+        padding: 1.2rem 1.5rem;
+      }
+    }
+  }
+  tbody {
+    tr {
+      border-bottom: 0.1rem solid #dddddd;
+      td {
+        padding: 0.3rem 1.7rem;
+      }
+      &:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+      &:last-of-type {
+        border-bottom: 0.2rem solid #009879;
+      }
+      // &:active {
+      //   font-weight: bold;
+      //   color: #009879;
+      // }
+    }
+
+    .table-btn {
+      background-color: #fc7c7c;
+      padding: 0.5rem;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      &:active {
+        box-shadow: 0.3rem 0.3rem 0 rgba(0, 0, 0, 0.15);
+      }
+      &.review {
+        background-color: #009879;
+
+        &.checked {
+          background-color: #e49621;
+        }
+      }
+      &.non-cancellable {
+        background-color: #bcbdbd;
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+}
+
+.overview-area {
+  width: 80rem;
+  background-color: whitesmoke;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  .overview-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .overview-header-close {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      font-size: 2.5rem;
+    }
+  }
+}
+.overview-title-header {
+  margin-top: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+
+  // text-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+  .overview-title {
+    color: $shoppingRed;
+  }
+}
+.overview {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  // text-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+  .overview-title {
+    color: $shoppingRed;
+  }
+}
+
+.review-input {
+  margin-bottom: 2rem;
+  .product-title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.9rem;
+    font-weight: 600;
+    &::before {
+      content: "‣ ";
+    }
+  }
+  .product-review {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    input {
+      margin-right: 2rem;
+      margin-left: 2rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid rgba(109, 93, 93, 0.4);
+      height: 2rem;
+      width: 50%;
+      font-size: 1.7rem;
+    }
+    select {
+      width: 20rem;
+      padding: 0.7rem;
+
+      border: 1px solid #ccc;
+      // appearance: none;
+      outline: none;
+
+      font-size: 1.5rem;
+    }
+
+    .review-submit {
+      margin-left: 2rem;
+      border-radius: 3px;
+      padding: 0.7rem;
+      width: 10rem;
+      font-size: 1.5rem;
+      color: white;
+      font-weight: 600;
+      background: #249879;
+      &:hover {
+        background: var(--color-hover);
+      }
+      &.update {
+        background-color: #e49621;
+      }
+    }
+  }
+}
+
+.control-month {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.month {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 10%;
+  i {
+    padding: 0.165rem 0.5rem;
+  }
+  &:hover {
+    color: red;
+  }
+}
+
+.myOrder__Box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  width: 100%;
+
+  &.review {
+    justify-content: center;
+  }
+  &.cancel {
+    padding: 0;
+    justify-content: center;
+  }
+  .product-fit {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+  }
+  &:not(:last-child) {
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.15);
+  }
+  .product__name__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .product__name {
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+  .product__price {
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    padding: 1.6rem 0;
+    text-align: center;
+  }
+}
+
+.product__button {
+  padding: 1.35rem 0; // 1.6rem - 버튼 패딩 0.5를 2로 나눈 값을 뺀 값
+  button {
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+      background-color: $success;
+    }
+  }
+}
+
+.total__text {
+  font-size: 2rem;
+  font-weight: 600;
+  &.admin {
+    font-size: 1.8rem;
+  }
+}

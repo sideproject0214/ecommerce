@@ -1,0 +1,12 @@
+FROM nginx:1.23-alpine
+
+# nginx 의 default.conf 를 삭제
+RUN rm -rf  /etc/nginx/conf.d
+RUN echo "Make certs"
+RUN mkdir /etc/nginx/certs
+
+COPY  ./config/prod /etc/nginx/conf.d
+COPY  ./config/certs /etc/nginx/certs
+
+EXPOSE 80
+EXPOSE 443

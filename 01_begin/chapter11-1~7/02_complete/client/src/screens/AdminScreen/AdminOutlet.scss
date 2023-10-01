@@ -1,0 +1,177 @@
+@import "../../assets/color-variable";
+@import "../../assets/mixins";
+
+.admin {
+  &__container {
+    position: relative;
+    width: 100%;
+  }
+  &__navigation {
+    position: fixed;
+    width: 30rem;
+    height: 100%;
+    background-color: $--blue;
+    border-left: 1rem solid $--blue;
+    overflow: hidden;
+    &.active {
+      transition: 0.3s;
+      width: 7.1rem;
+    }
+    ul {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      li {
+        position: relative;
+
+        width: 100%;
+        // overflow: hidden;
+        &:nth-child(1) {
+          margin-bottom: 4rem;
+        }
+        a {
+          display: block;
+          position: relative;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          color: $white;
+
+          .admin-icon {
+            position: relative;
+            // display: block;
+            padding-left: 1.2rem;
+            height: 6rem;
+            text-align: center;
+            line-height: 6rem;
+            font-size: 2.1rem;
+            margin-right: 2rem;
+            i {
+              width: 2rem;
+            }
+          }
+        }
+        // &:hover,
+        &.hovered {
+          background-color: $white;
+          // pointer-events: none;
+          border-top-left-radius: 3rem;
+          border-bottom-left-radius: 3rem;
+
+          a {
+            color: $--blue;
+
+            &::before {
+              content: "";
+              position: absolute;
+              right: 0;
+              top: -5rem;
+              width: 5rem;
+              height: 5rem;
+              border-radius: 50%;
+
+              background: transparent;
+
+              box-shadow: 3.5rem 3.5rem 0 1rem white;
+              // box-shadow: 0rem 0rem 0 1rem red;
+              // 좌우값 상하값 blur정도 그림자크기 색
+              // 그림자 크기를 마이너스로 하면 box보다 작아지므로 안보임
+              // z-index: 1000000;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              right: 0;
+              bottom: -5rem;
+              width: 5rem;
+              height: 5rem;
+              border-radius: 50%;
+              background-color: transparent;
+              box-shadow: 3.5rem -3.5rem 0 1rem $white;
+            }
+          }
+        }
+      }
+    }
+  }
+  // admi-main
+  &__main {
+    position: absolute;
+    width: calc(100% - 30rem);
+    left: 30rem;
+    min-height: 100vh;
+    background-color: $white;
+    transition: 0.5s;
+    &.close {
+      left: 10rem;
+      width: calc(100% - 10rem);
+    }
+    &__topbar {
+      width: 100%;
+      height: 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &__toggle {
+        position: relative;
+        top: 0;
+        width: 6rem;
+        height: 6rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5rem;
+      }
+    }
+    &__search {
+      @include admin-search;
+    }
+  }
+  &__body {
+    &__cardbox {
+      position: relative;
+      width: 100%;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      &__card {
+        position: relative;
+        background-color: $white;
+        padding: 3rem;
+        border-radius: 2rem;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        box-shadow: 0 0.7rem 2.5rem rgba(0, 0, 0, 0.08);
+        &__numbers {
+          position: relative;
+          font-weight: 500;
+          font-size: 4rem;
+          color: $--blue;
+        }
+        &__name {
+          color: $--black2;
+          font-size: 2.2rem;
+          margin-top: 0.5rem;
+        }
+        &__icon {
+          font-size: 5rem;
+          color: $--black2;
+        }
+
+        &:hover * {
+          color: $white; // admin__body__cardbox__card "hover"하면 그 아래 모두
+        }
+        &:hover {
+          background-color: $blue;
+        }
+      }
+    }
+  }
+}
