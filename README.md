@@ -1,5 +1,8 @@
 # Node FullStack Develpment Guide
 
+## 인프런 강의 
+- Node FullStack 개발 가이드 : <https://inf.run/QQLq7>
+  
 ## 폴더별 설명
 
 ### [01] 01_begin 폴더
